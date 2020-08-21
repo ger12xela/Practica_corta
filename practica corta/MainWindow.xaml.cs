@@ -25,7 +25,11 @@ namespace practica_corta
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// cuando se le da clic en "agregar"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             salidaTextbox.Text = " ";

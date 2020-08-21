@@ -6,19 +6,27 @@ using System.Threading.Tasks;
 
 namespace practica_corta.NewFolder1
 {
+    /// <summary>
+    /// clase principal del reconocimeinto de lexemas
+    /// </summary>
     class backlexico
     {
         public backlexico(){
-            
-
+   
         }
 
         string palabra = "";
+        String palabraSuelta;// para el paso 2 
+
+        /// <summary>
+        /// este paso separa las palabras de la horacion "cada que encuentra un espacio"
+        /// </summary>
+        /// <param name="oracion"="cadena"></param>
+        /// <returns> String; las plabras con tipo de lexema </returns>
         public String Peso1(String cadena)
         {
         String retorno = " ";
             int numero = cadena.Length;
-                Console.WriteLine ("los caracteres son " + numero);
                
             for (int i = 0; i < cadena.Length; i++)
             {
@@ -38,14 +46,23 @@ namespace practica_corta.NewFolder1
             return retorno;
         }
 
-        // paso 2 
+        // paso 2
 
-        String palabraSuelta;
+        /// <summary>
+        /// sirbe para memoria para guardar las plabras como una sola cadena
+        /// </summary>
+        /// <param name="palabra del paso 1"></param>
+        /// <returns>toda la lista de palabras con el tipo de lexema</returns>
         public String paso2(String palabra) {
             palabraSuelta += paso3(palabra) +"\n";
             return palabraSuelta;
         }
 
+        /// <summary>
+        /// este se encarga de saber que tipo es cada uno de los caracteres
+        /// </summary>
+        /// <param name="palabra"></param>
+        /// <returns>el tipo de palabra </returns>
         public String paso3(String palabra) {
             String respuesta = palabra + " No identifica ";
             String letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
@@ -69,7 +86,6 @@ namespace practica_corta.NewFolder1
                     if (palabra[i].Equals(letras[j]))
                     {
                         contador_letra++;
-                        Console.WriteLine(contador_letra);
                     }
                 }
         
@@ -92,7 +108,6 @@ namespace practica_corta.NewFolder1
             {
                 if (palabra[i].Equals('.')){ 
                 contador_punto++;
-                Console.WriteLine("hay un punto");
                 }
 
             }
@@ -106,6 +121,9 @@ namespace practica_corta.NewFolder1
             {
                 respuesta = palabra + " --> es un Entero";
             }
+            if (contador_numero == palabra.Length - 1 && palabra[0].Equals('-')) {
+                respuesta = palabra + " --> es un Entero Negativo";
+            } 
 
             if (contador_punto == 1 && contador_numero == (palabra.Length - 1)) {
                 respuesta = palabra + " --> es un Decimal";
