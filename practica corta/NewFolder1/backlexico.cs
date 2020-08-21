@@ -109,6 +109,10 @@ namespace practica_corta.NewFolder1
 
             if (contador_punto == 1 && contador_numero == (palabra.Length - 1)) {
                 respuesta = palabra + " --> es un Decimal";
+                int a = palabra.Length-1;
+                if (palabra[a].Equals('.')){
+                    respuesta = palabra + " -->es un entero"; 
+                }
             }
             if (contador_numero == (palabra.Length - 2) && contador_punto == 1 && palabra[0].Equals('Q')) {
                 respuesta = palabra + " --> es una Moneda";
